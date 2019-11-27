@@ -1,0 +1,33 @@
+import { EventEmitter } from 'events';
+import * as blessed from 'blessed';
+import { Face } from '../../face';
+export declare type FrameEventName = 'face' | 'image' | 'log' | 'status' | 'title';
+export declare class Frame extends EventEmitter {
+    screen: blessed.Widgets.Screen;
+    private elementList;
+    private _box;
+    private thumbWidth;
+    private imageWidth;
+    private imageHeight;
+    constructor(screen: blessed.Widgets.Screen);
+    init(): void;
+    emit(event: 'image', filename: string): boolean;
+    emit(event: 'log', message: string): boolean;
+    emit(event: 'title', title: string): boolean;
+    emit(event: 'status', message: string): boolean;
+    emit(event: 'face', face: Face): boolean;
+    emit(event: never, data: any): boolean;
+    clean(): void;
+    readonly box: blessed.Widgets.BoxElement;
+    bindQuitKey(callback: Function): void;
+    private addBoxElement;
+    private append;
+    private addHeaderElement;
+    private addThumbElementList;
+    private addFace;
+    private addImageElement;
+    private showPicture;
+    private addMeterElement;
+    private addStatusElement;
+}
+export default Frame;

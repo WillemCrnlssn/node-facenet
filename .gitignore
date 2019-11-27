@@ -119,7 +119,6 @@ typings/
 t/
 t.*
 .t.*
-/dist/
 .vscode/.ropeproject/
 
 *$py.class
