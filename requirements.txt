@@ -6,6 +6,6 @@ pytest
 opencv-python
 scipy
 sklearn
-tensorflow
+tensorflow==1.7
 typing
 wheel
